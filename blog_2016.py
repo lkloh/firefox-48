@@ -12,7 +12,7 @@ from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 # 	return driver
 
 def init_driver():
-	binary = FirefoxBinary('/usr0/lloh/geckodriver')
+	binary = FirefoxBinary('/usr0/lloh/firefox-48/geckodriver')
 	driver = webdriver.Firefox(firefox_binary=binary)
 	driver.wait = WebDriverWait(driver, 5)
 	return driver
