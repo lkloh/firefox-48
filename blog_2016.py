@@ -4,9 +4,16 @@ from selenium.webdriver.common.proxy import *
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
+
+# def init_driver():
+# 	driver = webdriver.Firefox()
+# 	driver.wait = WebDriverWait(driver, 5)
+# 	return driver
 
 def init_driver():
-	driver = webdriver.Firefox()
+	binary = FirefoxBinary('/usr0/lloh/geckodriver')
+	driver = webdriver.Firefox(firefox_binary=binary)
 	driver.wait = WebDriverWait(driver, 5)
 	return driver
 
