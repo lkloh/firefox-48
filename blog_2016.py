@@ -12,9 +12,9 @@ from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 # 	return driver
 
 def init_driver():
-	binary = FirefoxBinary('/usr0/lloh/firefox-48/geckodriver')
-	driver = webdriver.Firefox(firefox_binary=binary)
-	driver.wait = WebDriverWait(driver, 5)
+	# binary = FirefoxBinary('/usr0/lloh/firefox-48/geckodriver')
+	driver = webdriver.Firefox()
+	driver.wait = WebDriverWait(driver, 2)
 	return driver
 
 def lookup(driver):
@@ -23,6 +23,6 @@ def lookup(driver):
 if __name__ == '__main__':
 	driver = init_driver()
 	lookup(driver)
-	time.sleep(5)
+	time.sleep(2)
 	driver.quit()
 
