@@ -13,19 +13,34 @@ from xvfbwrapper import Xvfb
 # 	return driver
 
 def init_driver():
-	# binary = FirefoxBinary('/usr0/lloh/firefox-48/geckodriver')
+	firefox_capabilities = DesiredCapabilities.FIREFOX
+	firefox_capabilities['marionette'] = True
+
 	vdisplay = Xvfb(width=1280, height=720)
 	vdisplay.start()
-	driver = webdriver.Firefox()
+
+	driver = webdriver.Firefox(capabilities=firefox_capabilities)
 	driver.wait = WebDriverWait(driver, 2)
+
 	return driver
+
+
+
 
 def lookup(driver):
 	driver.get('https://www.ece.cmu.edu/~ece734/')
+
+
+
 
 if __name__ == '__main__':
 	driver = init_driver()
 	lookup(driver)
 	time.sleep(2)
 	driver.quit()
+
+
+
+
+
 
